@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:pageraexam="http://www.pagera.i8.com"
+            targetNamespace="http://www.pagera.i8.com"
+            elementFormDefault="qualified">
+
+  <element name="exam" type="pageraexam:exam"/>
+
+  <complexType name="exam">
+    <sequence>
+      <element name="name"  type="string"/>
+      <element name="time" type="int"/>
+      <element name="questionscount" type="int" minOccurs="1"
+      maxOccurs="unbounded" />
+      <element name="average" type="int" minOccurs="1"
+       maxOccurs="unbounded"/>
+      <element name="question" type="pageraexam:question" minOccurs="1"
+      maxOccurs="unbounded"/>
+      <element name="writer" type="pageraexam:writer"/>
+    </sequence>
+  </complexType>
+
+
+  <complexType name="question">
+    <sequence>
+      <element name="questionstring" type="string"/>
+      <element name="mode" type="string"/>
+      <element name="answerscount" type="int" minOccurs="1"
+      maxOccurs="unbounded" />
+      <element name="note" type="string"/>
+      <element name="answer" type="pageraexam:answer"
+      minOccurs="1" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+
+
+
+  <complexType name="answer">
+    <sequence>
+      <element name="state" type="boolean"/>
+      <element name="answerstring" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="writer">
+    <sequence>
+      <element name="wname" type="string"/>
+      <element name="mail" type="string"/>
+      <element name="webaddress" type="string"/>
+      <element name="description" type="string"/>
+    </sequence>
+  </complexType>
+</schema>
